@@ -7,11 +7,11 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 # If waking from sleep...
 if [[ "${1}" == "post" ]]; then
     # AFTER RESUME
-    echo "$(date) Have resumed..." >> /tmp/wake.log
+    echo "$(date) [resume] hallo meister, ich bin wieder da, um für dich zu kalkulieren..." >> /tmp/wake.log
     grep -q closed /proc/acpi/button/lid/LID/state
     if [ $? = 0 ]
     then
-        echo "$(date) Have resumed and lid is closed, attempting to suspend..." >> /tmp/wake.log
+        echo "$(date) [sleep] jetzt bin ich schon wach, aber du willst nichts mit mir zu tun haben. ich geh pennen" >> /tmp/wake.log
         echo freeze > /sys/power/state
     fi
 fi
